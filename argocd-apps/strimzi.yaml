@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: strimzi
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: in-cluster
+    namespace: development
+  project: default
+  source:
+    chart: strimzi
+    helm:
+    repoURL: https://strimzi.io/charts/
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

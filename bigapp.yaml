@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bigapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ehienabs/civo-kafka.git
+    targetRevision: HEAD
+    path: argocd-apps
+  destination:
+    name: in-cluster
+    namespace: development
+  
