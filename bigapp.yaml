@@ -11,5 +11,5 @@ spec:
     path: argocd-apps
   destination:
     name: in-cluster
-    namespace: development
+    namespace: default
   
