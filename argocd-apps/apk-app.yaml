@@ -11,7 +11,7 @@ spec:
     path: apk-cluster/strimzi-apk-cluster
   destination:
     name: in-cluster
-    namespace: development
+    namespace: default
   syncPolicy:
     automated:
       prune: true
