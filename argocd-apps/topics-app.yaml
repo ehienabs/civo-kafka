@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: topicapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ehienabs/civo-kafka.git
+    targetRevision: HEAD
+    path: apk-cluster/topics
+  destination:
+    name: in-cluster
+    namespace: development
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true 
